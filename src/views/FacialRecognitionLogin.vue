@@ -80,7 +80,7 @@ export default {
       window.console.log(self.dataURItoBlob(dataURL))
       var fd = new FormData(document.forms[0]);
       fd.append("file", self.dataURItoBlob(dataURL));
-      self.api.post("http://172.16.1.2:8080/auth/login", fd, {
+      self.api.post("https://172.16.1.2:8080/auth/login", fd, {
         headers: {
           'Content-Type': "multipart/form-data"
         }
