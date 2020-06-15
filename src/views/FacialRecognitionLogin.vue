@@ -90,7 +90,6 @@ export default {
         document.getElementById("container").removeChild(document.getElementsByTagName("canvas")[0]);
         let div = document.createElement("div");
         div.innerHTML = "Welcome " + response.data;
-        alert(div);
         document.getElementById("container").append(div);
 
         console.log(response)
