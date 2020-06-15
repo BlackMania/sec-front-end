@@ -86,6 +86,11 @@ export default {
         }
       })
       .then(response => {
+        document.getElementById("container").removeChild(document.getElementById("video"));
+        let div = document.createElement("div");
+        div.innerHTML("Welcome " + response.data);
+        document.getElementById("container").append(div);
+
         console.log(response)
       })
       .catch(error => {
