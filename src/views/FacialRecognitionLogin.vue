@@ -89,7 +89,7 @@ export default {
         document.getElementById("container").removeChild(document.getElementById("video"));
         document.getElementById("container").removeChild(document.getElementsByTagName("canvas")[0]);
         let div = document.createElement("div");
-        div.innerHTML("Welcome " + response.data);
+        div.innerHTML = "Welcome " + response.data;
         alert(div);
         document.getElementById("container").append(div);
 
