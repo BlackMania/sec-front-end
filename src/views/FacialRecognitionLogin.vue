@@ -48,6 +48,7 @@ export default {
     }
 
     video.addEventListener("play", () => {
+      try{
       const canvas = faceapi.createCanvasFromMedia(video);
       const container = document.getElementById("container");
       canvas.style.position = "absolute";
@@ -69,6 +70,11 @@ export default {
         faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       }, 5);
+      }
+      catch(error){
+        console.log(error.data)
+      }
+
     });
 
     setTimeout(function() {
