@@ -79,7 +79,7 @@ export default {
       const dataURL = imgCanvas.toDataURL('image/jpeg', 0.5);
       window.console.log(self.dataURItoBlob(dataURL))
       var fd = new FormData(document.forms[0]);
-      fd.append("file", self.dataURItoBlob(dataURL), "photo.jpeg");
+      fd.append("file", self.dataURItoBlob(dataURL), "photo.jpg");
       self.api.post("https://192.168.33.13:8082/auth/login", fd, {
         headers: {
           'Content-Type': "multipart/form-data"
