@@ -25,6 +25,9 @@ export default {
   async mounted() {
     const self = this;
     const video = document.getElementById("video");
+video.style.cssText = "-moz-transform: scale(-1, 1); \
+-webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
+transform: scale(-1, 1); filter: FlipH;";
 
     Promise.all([
       faceapi.nets.tinyFaceDetector.loadFromUri("/models"),
@@ -49,6 +52,9 @@ export default {
 
     video.addEventListener("play", () => {
       const canvas = faceapi.createCanvasFromMedia(video);
+      canvas.style.cssText = "-moz-transform: scale(-1, 1); \
+-webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
+transform: scale(-1, 1); filter: FlipH;";
       const container = document.getElementById("container");
       canvas.style.position = "absolute";
       canvas.style.top = 0;
