@@ -34,11 +34,17 @@ export default {
     ]).then(startVideo);
 
     function startVideo() {
-      navigator.getUserMedia(
-        { video: {} },
-        stream => (video.srcObject = stream),
-        err => console.error(err)
-      );
+      var facingMode = "user"; // Can be 'user' or 'environment' to access back or front camera (NEAT!)
+      var constraints = {
+        audio: false,
+        video: {
+        facingMode: facingMode
+        }
+      };
+      
+        navigator.mediaDevices.getUserMedia(constraints).then(function success(stream) {
+        video.srcObject = stream;
+      });
     }
 
     video.addEventListener("play", () => {
