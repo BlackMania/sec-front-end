@@ -48,7 +48,6 @@ export default {
     }
 
     video.addEventListener("play", () => {
-      try{
       const canvas = faceapi.createCanvasFromMedia(video);
       const container = document.getElementById("container");
       canvas.style.position = "absolute";
@@ -70,11 +69,6 @@ export default {
         faceapi.draw.drawDetections(canvas, resizedDetections);
         faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
       }, 5);
-      }
-      catch(error){
-        console.log(error.data)
-      }
-
     });
 
     setTimeout(function() {
@@ -93,8 +87,10 @@ export default {
       })
       .then(response => {
         document.getElementById("container").removeChild(document.getElementById("video"));
+        document.getElementById("container").removeChild(document.getElementsByTagName("canvas")[0]);
         let div = document.createElement("div");
         div.innerHTML("Welcome " + response.data);
+        alert(div);
         document.getElementById("container").append(div);
 
         console.log(response)
