@@ -96,7 +96,7 @@ export default {
       .catch(error => {
         console.log(error);
       })
-    }, 10000)
+    }, 15000)
   },
   methods: {
     dataURItoBlob: function(dataURI) {
